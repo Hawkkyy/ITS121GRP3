@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hurricane">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Serif+Text">
+    <link rel="icon" type="image/jpg" href="../../main_pictures/logo.jpg">
+    <title>Creamy Treats | Ordering Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'DM Serif Text', sans-serif;
+            color: #5d4037;
+            background: linear-gradient(180deg, rgb(255, 199, 213) 0%, rgb(255, 34, 86) 100% ); 
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            background-color: transparent;
+        }
+
+        .banner {
+            background-color: transparent; 
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .logo-placeholder {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .brand-name {
+            font-family: "Hurricane";
+            font-size: 4rem;
+            margin: 0;
+            color: #000;
+        }
+
+        nav {
+            padding: 30px 0;
+            background-color: #f9f9f9;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-family: "DM Serif Text";
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: #5d4037;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 2.5px solid #5d4037;
+            padding: 12px 35px;
+            border-radius: 35px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: none;
+            
+        }
+
+        .nav-btn:hover {
+            background-color: #5d4037;
+            color: #fff;
+        }
+
+        .order-notice {
+            background-color: #f0fff4; 
+            border-bottom: 2px solid #c6f6d5;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .notice-content {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid #38a169;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #ffffff;
+        }
+
+        .notice-content h2 {
+            margin: 0 0 10px 0;
+            color: #2f855a;
+            font-size: 1.8rem;
+        }
+
+        .main-content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #ffc1d6;
+            margin: 10px auto;
+        }
+
+        .order-form-container {
+            background-color: #fffafb;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #ffc1d6;
+            margin-bottom: 80px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .order-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        input, select, textarea {
+            padding: 12px;
+            border: 1px solid #ffc1d6;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .form-actions {
+            grid-column: span 2;
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .submit-btn {
+            flex: 2;
+            background-color: #d81b60;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: "DM Serif Text";
+        }
+
+        .submit-btn:hover {
+            background-color: #ad1457;
+        }
+
+        .clear-btn {
+            flex: 1;
+            background-color: transparent;
+            color: #5d4037;
+            padding: 15px;
+            border: 2px solid #5d4037;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: "DM Serif Text";
+        }
+
+        .clear-btn:hover {
+            background-color: #eee;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        footer button {
+            background: none;
+            border: 2px solid #704214;
+            padding: 10px 25px;
+            margin: 0 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        footer button a {
+            text-decoration: none;
+            color: #704214;
+            font-family: "DM Serif Text", serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .socials {
+            height: 50px;
+            margin: 0 15px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .title-box {
+            background-color: #ffffff;
+            border: 2px solid #ffc1d6;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="banner">
+            <div class="logo-placeholder">
+                <img src="logo.jpg" alt="Creamy Treats Logo" style="height: 150px;">
+            </div>
+            <h1 class="brand-name">Creamy Treats</h1>
+        </div>
+    </header>
+    <nav>
+            <ul>
+                <li><a href="../../main.html" class="nav-btn">Home</a></li>
+                <li><a href="../AboutUs/aboutus.html" class="nav-btn">About Us</a></li>
+                <li><a href="../Menu/menu.html" class="nav-btn">Menu</a></li>
+                <li><a href="orderform.html " class="nav-btn">Order Online</a></li>
+            </ul>
+    </nav>
+
+    <section class="order-notice">
+        <div class="notice-content">
+            <h2>🎂 We Are Now Accepting Orders!</h2>
+            <p>Our kitchen is open! Use the form below to book your custom cakes today.</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+
+        <div class="title-box">
+            <h2 id="order-form" class="section-title">Place Your Order</h2>
+        </div>
+        <div class="order-form-container">
+            <form action="https://formspree.io/f/xbdajvgn" method="POST" class="order-form">
+                
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="Customer_Name" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="Contact_Number" placeholder="09XX-XXX-XXXX" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Complete Address</label>
+                    <input type="text" name="Address" placeholder="House No., Street, Barangay, City" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Select Cake Type</label>
+                    <select name="Cake Type" required>
+                        <option value="">-- Choose an option --</option>
+                        <option value="1T_12CUP">1-Tier Cake w/ 12 Cupcakes</option>
+                        <option value="2T_12CUP">2-Tier Cake w/ 12 Cupcakes</option>
+                        <option value="3TC_12CUP">3-Tier Cake w/ 12 Cupcakes</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Delivery/Pickup Date</label>
+                    <input type="date" name="Date" required>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label>Design Details / Special Instructions</label>
+                    <textarea name="Details" rows="4" placeholder="Tell us about your theme, colors, or flavors..."></textarea>
+                </div>
+                
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit Order Request</button>
+                    <button type="reset" class="clear-btn">Clear Form</button>
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+    <footer>
+        <button><a href="https://www.facebook.com/mary.grace.626154"><img src="../../main_pictures/fb.webp" class="socials"></a></button>
+        <button><a href="https://www.instagram.com/mar_ydames?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="../../main_pictures/ig.webp" class="socials"></a></button>
+        <button><a href="mailto:marygracedameso63@gmail.com"><img src="../../main_pictures/gmail.webp" class="socials"></a></button>
+        <button><a href="tel:+639389383741"><img src="../../main_pictures/phone.png" class="socials"></a></button>
+        <br>
+        <div class="contact-info">
+            <strong>Creamy Treats Homemade Cakes</strong><br>
+            Email: marygracedames@gmail.com<br>
+            Phone: 09389383741
+            <br>
+            <a href="../../sitemap.html" style="color: rgb(0, 0, 0); text-decoration: underline; margin-top: 10px; display: inline-block;">Site Map</a>
+            <br>
+            Creamy Treats Homemade Cakes | Developed by: Group 3, ITS121-L Mapúa University Makati
+            <br>
+            2026
+        </div>
+       
+    </footer>
+
+</body>
+</html>

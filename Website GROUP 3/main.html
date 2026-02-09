@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hurricane">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Serif+Text">
+    <link rel="icon" type="image/jpg" href="main_pictures/logo.jpg">
+    <title>Creamy Treats | Homemade Cakes</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "DM Serif Text";
+            color: #5d4037; 
+            background: linear-gradient(180deg, rgb(255, 199, 213) 0%, rgb(255, 34, 86) 100% ); 
+        }
+        header {
+            text-align: center;
+        }
+
+        .banner {
+            background-color: transparent; 
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .brand-name {
+            font-family: 'Hurricane', cursive;
+            font-size: 54px;
+            margin: 0;
+            color: #000;
+        }
+
+        nav {
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: #704214;
+            font-family: "DM Serif Text";
+            font-weight: bold;
+            font-size: 18px;
+            border: 2.5px solid #704214;
+            padding: 10px 25px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: none;
+        }
+
+        .nav-btn:hover {
+            background-color: #5d4037;
+            color: #fff;
+        }
+
+        .order-notice {
+            background-color: #f0fff4; 
+            border-bottom: 2px solid #c6f6d5;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .notice-content {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid #38a169;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #ffffff;
+        }
+
+        .notice-content h2 {
+            margin: 0 0 10px 0;
+            color: #2f855a;
+            font-size: 1.8rem;
+        }
+
+        .order-display-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #d81b60;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #ffc1d6;
+            margin: 10px auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            border: 5px solid #ffc1d6;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 450px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-family: "Hurricane", cursive;
+            font-size: 60px;
+            margin: 5px 0;
+            color: #5d4037;
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            text-align: center;
+            margin-bottom: 80px;
+            padding: 40px 0;
+        }
+
+        .feature-item {
+            flex: 1;
+            min-width: 250px;
+            background: linear-gradient(180deg, rgb(196, 255, 182) 0%, rgb(141, 225, 169) 100% );
+            border: 2px solid #6dffaf;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            color: #f83c81;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .feature-item p {
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .promo-section {
+            background-color: #fffafb;
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px dashed #ffc1d6;
+            margin-bottom: 80px;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .promo-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .promo-item h4 {
+            margin-top: 0;
+            color: #d81b60;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        footer {
+            background: #5d4037;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .boxed-content {
+            background-color: #ffffff;
+            border: 2px solid #ffc1d6;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        footer button {
+            background: none;
+            border: 2px solid #704214;
+            padding: 10px 25px;
+            margin: 0 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        footer button a {
+            text-decoration: none;
+            color: #704214;
+            font-family: "DM Serif Text", serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .socials {
+            height: 50px;
+            margin: 0 15px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #5d4037;
+            font-family: "DM Serif Text";
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="banner">
+            <div class="logo-placeholder">
+                <img src="main_pictures/logo.jpg" alt="Creamy Treats Logo" style="height: 150px;">
+            </div>
+            <h1 class="brand-name">Creamy Treats</h1>
+        </div>
+    </header>
+    
+    <nav>
+            <ul>
+                <li><a href="main.html" class="nav-btn">Home</a></li>
+                <li><a href="pages/AboutUs/aboutus.html" class="nav-btn">About Us</a></li>
+                <li><a href="pages/Menu/menu.html" class="nav-btn">Menu</a></li>
+                <li><a href="pages/Orderform/orderform.html" class="nav-btn">Order Online</a></li>
+            </ul>
+    </nav>
+
+    <section class="order-notice">
+        <div class="notice-content">
+            <h2>🎂 We Are Now Accepting Orders!</h2>
+            <p>Our kitchen is open! Book your custom cakes today. Please order at least 5 days in advance.</p>
+            <div class="order-display-btn">Book Your Cake Now</div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        
+        <section>
+            <div class="boxed-content">
+                <h2 class="section-title">Why Choose Creamy Treats?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Fresh Ingredients</h3>
+                        <p>We use only premium, locally-sourced ingredients to ensure every bite is rich and moist.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Custom Designs</h3>
+                        <p>Every cake is a unique masterpiece, handcrafted to match your theme and personality.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Baked with Love</h3>
+                        <p>As a homemade bakery, we prioritize quality and care over mass production.</p>
+                    </div>
+                </div>
+            </div>
+
+        <div class="boxed-content">
+            <h2 class="section-title">Our Signature Creations</h2>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image"><img src="main_pictures/cake1.jpg" alt="Wedding Cake"></div>
+                <div class="product-info"><h3>Wedding Cake</h3></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="main_pictures/cake2.jpg" alt="Debutant Cake"></div>
+                <div class="product-info"><h3>Debutant Cake</h3></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="main_pictures/cake3.jpg" alt="Children's Cake"></div>
+                <div class="product-info"><h3>Children's Cake</h3></div>
+            </div>
+        </div>
+
+        <div class="boxed-content">
+            <h2 class="section-title">Promo Cake Packages</h2>
+        </div>
+
+        <div class="promo-section">
+            <div class="promo-grid">
+                <div class="promo-item">
+                    <h4>1-Tier + 12 Cupcakes <span>₱1,300</span></h4>
+                    <p>7" x 6" Chocolate Moist Cake with Soft Icing.</p>
+                </div>
+                <div class="promo-item">
+                    <h4>2-Tier + 12 Cupcakes <span>₱2,800</span></h4>
+                    <p>8" Bottom & 6" Top with Fondant details.</p>
+                </div>
+                <div class="promo-item">
+                    <h4>3-Tier + 12 Cupcakes <span>₱4,500</span></h4>
+                    <p>Grand celebrations with customized tiers.</p>
+                </div>
+                <li><a href="pages/Menu/menu.html" class="nav-btn">Learn More</a></li>
+            </div>
+        </div>
+
+        </section>
+
+        
+       
+    </main>
+
+    <footer>
+        <button><a href="https://www.facebook.com/mary.grace.626154"><img src="main_pictures/fb.webp" class="socials"></a></button>
+        <button><a href="https://www.instagram.com/mar_ydames?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="main_pictures/ig.webp" class="socials"></a></button>
+        <button><a href="mailto:marygracedameso63@gmail.com"><img src="main_pictures/gmail.webp" class="socials"></a></button>
+        <button><a href="tel:+639389383741"><img src="main_pictures/phone.png" class="socials"></a></button>
+        <br>
+        <div class="contact-info">
+            <strong>Creamy Treats Homemade Cakes</strong><br>
+            Email: marygracedames@gmail.com<br>
+            Phone: 09389383741
+            <br>
+            <a href="sitemap.html" style="color: rgb(0, 0, 0); text-decoration: underline; margin-top: 10px; display: inline-block;">Site Map</a>
+            <br>
+            Creamy Treats Homemade Cakes | Developed by: Group 3, ITS121-L Mapúa University Makati
+            <br>
+            2026
+        </div>
+       
+    </footer>
+
+</body>
+</html>
