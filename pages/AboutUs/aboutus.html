@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Hurricane" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Text" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hurricane">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&family=Mulish:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpg" href="../../main_pictures/logo.jpg    ">
+    <title>Creamy Treats | About Us</title>
+    <style>
+        body {
+            background: linear-gradient(180deg, rgb(255, 199, 213) 0%, rgb(255, 34, 86) 100% ); 
+            margin: 0;
+            font-family: "Mulish", sans-serif;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        nav {
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav button {
+            background: none;
+            border: 2px solid #704214;
+            padding: 10px 25px;
+            margin: 0 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        nav button a {
+            text-decoration: none;
+            color: #704214;
+            font-family: "DM Serif Text", serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        footer button {
+            background: none;
+            border: 2px solid #704214;
+            padding: 10px 25px;
+            margin: 0 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        footer button a {
+            text-decoration: none;
+            color: #704214;
+            font-family: "DM Serif Text", serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #logo {
+            font-family: "Hurricane";
+            font-size: 54px;
+            margin: 0;
+        }
+
+        .logo-placeholder {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        #logopc {
+            height: 150px;
+        }
+
+        #Hi {
+            font-family: "Fraunces", serif;
+            font-size: 48px;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: popup 1s ease forwards;
+        }
+
+        @keyframes popup {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro {
+            max-width: 900px;
+            margin: 30px auto;
+            font-size: 20px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .section {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .section h2 {
+            font-family: "Fraunces", serif;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .section h3 {
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 1.6;
+        
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;       
+            justify-content: center; 
+            gap: 20px;           
+            padding: 20px;
+            max-width: 1000px;   
+            margin: 0 auto;       
+        }
+
+        .gallery img {
+            width: 220px;        
+            height: 220px;        
+            object-fit: cover;    
+            border-radius: 10px;   
+        }
+
+        .socials {
+            height: 50px;
+            margin: 0 15px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #5d4037;
+            font-family: "DM Serif Text";
+        }
+
+        .boxed-content {
+            background-color: #ffffff;
+            border: 2px solid #ffc1d6;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-placeholder">
+        <img src="logo.jpg" id="logopc" alt="Creamy Treats Logo" style="height: 150px">
+    </div>
+    <h1 id="logo">Creamy Treats</h1>
+</header>
+
+<nav>
+    <button><a href="../../index.html">Home</a></button>
+    <button><a href="aboutus.html">About Us</a></button>
+    <button><a href="../Menu/menu.html">Menu</a></button>
+    <button><a href="../Orderform/orderform.html">Order Online</a></button>
+</nav>
+
+
+<h1 id="Hi">Hi! Welcome to Creamy Treats!</h1>
+<p class="intro">
+<b>Creamy Treats</b> is a small food business focused on homemade cakes and pastries.
+We create simple, comforting desserts made to be shared—<b>perfect for everyday cravings and family celebrations.</b>
+</p>
+
+<div class="section">
+    <h2>Who is the company for?</h2>
+    <h3>
+        <b>Creamy Treats</b> is for families and individuals who want <b>affordable, heartfelt desserts.</b>
+        It’s also a business built to support the family and help sustain everyday living.
+    </h3>
+</div>
+
+<div class="section">
+    <h2>Why do you do it?</h2>
+    <h3>
+        We do it to earn a living—<b>honestly and proudly.</b> Baking is our way of turning skill and effort
+        into income while providing for our family.
+    </h3>
+</div>
+
+<div class="section">
+    <h2>History of the company</h2>
+    <h3>
+        <b>Creamy Treats</b> began in <b>London,</b> where baking was done as a small business.
+        Due to work commitments, operations eventually slowed down.
+        When we arrived in the <b>Philippines around 2009,</b> baking became our primary source of income,
+        focusing on cakes made for customers and the community.
+    </h3>
+</div>
+
+<div class="gallery">
+  <img src="Cake1.png" alt="Cake 1">
+  <img src="Cake2.png" alt="Cake 2">
+  <img src="Cake3.png" alt="Cake 3">
+  <img src="Cake4.png" alt="Cake 4">
+</div>
+
+
+<h1 id="Hi">Contact us!</h1>
+
+<footer>
+    <button><a href="https://www.facebook.com/mary.grace.626154"><img src="../../main_pictures/fb.webp" class="socials"></a></button>
+    <button><a href="https://www.instagram.com/mar_ydames?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="../../main_pictures/ig.webp" class="socials"></a></button>
+    <button><a href="mailto:marygracedameso63@gmail.com"><img src="../../main_pictures/gmail.webp" class="socials"></a></button>
+    <button><a href="tel:+639389383741"><img src="../../main_pictures/phone.png" class="socials"></a></button>
+    <div class="contact-info">
+            <strong>Creamy Treats Homemade Cakes</strong><br>
+            Email: marygracedames@gmail.com<br>
+            Phone: 09389383741
+            <br>
+            <a href="../../sitemap.html" style="color: rgb(0, 0, 0); text-decoration: underline; margin-top: 10px; display: inline-block;">Site Map</a>
+            <br>
+            Creamy Treats Homemade Cakes | Developed by: Group 3, ITS121-L Mapúa University Makati
+            <br>
+            2026 
+    </div>
+</footer>
+
+</body> 
+</html>

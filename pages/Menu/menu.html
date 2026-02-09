@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hurricane">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Serif+Text">
+    <link rel="icon" type="image/jpg" href="../../main_pictures/logo.jpg">
+    <title>Creamy Treats | Packages <Menu></Menu></title>
+    <style>
+        body {
+            background: linear-gradient(180deg, rgb(255, 199, 213) 0%, rgb(255, 34, 86) 100% ); 
+            margin: 0;
+            font-family: "DM Serif Text", serif;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+            padding-top: 20px;
+        }
+        nav {
+            display: block;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav button {
+            background: none;
+            border: 2px solid #704214;
+            padding: 10px 25px;
+            margin: 5px 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        nav button a {
+            text-decoration: none;
+            color: #704214;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: "DM Serif Text";
+        }
+        #logo {
+            font-family: "Hurricane";
+            font-size: 54px;
+            margin: 0;
+            color: #000000;
+        }
+        #logopc {
+            height: 120px;
+            width: auto;
+        }
+        .logo-placeholder {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.20);
+            border-radius: 10px;
+            z-index: 1001;
+        }
+        .dropdown-content a {
+            color: #704214;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+        }
+        
+        .price-details {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .price-details summary {
+            cursor: pointer;
+            list-style: none;
+            font-size: 1.5rem;
+            color: #704214;
+            padding: 15px;
+            border: 2px dashed #ffc1d6;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+
+            display: flex;
+            justify-content: center;
+            width: fit-content;
+            margin: 0 auto;
+        }
+        .price-details summary:hover {
+            background-color: rgba(255, 199, 213, 0.2);
+            color: #ff2d7a;
+        }
+        .price-details summary::-webkit-details-marker {
+            display: none;
+        }
+        .price-details[open] table {
+            animation: fadeIn 0.5s ease; 
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+       
+
+        /* --- Optimized 10-Item Layout --- */
+        .menu-container {
+            max-width: 1000px; /* Narrower container for better focus */
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Larger cards */
+            gap: 40px;
+        }
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: scale(1.02);
+        }
+
+        .menu-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 10px;
+            background: linear-gradient(180deg, rgb(196, 255, 182) 0%, rgb(141, 225, 169) 100% );
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .menu-table th, .menu-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .menu-table thead {
+            background-color: #74e08a;
+            color: #ff2d7a;
+        }
+        .menu-table tbody tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .item-image {
+            width: 100%;
+            height: 250px; /* Taller images for 10 items */
+            object-fit: cover;
+        }
+        .item-details {
+            padding: 20px;
+        }
+        .item-name {
+            font-size: 24px;
+            color: #704214;
+            display: block;
+            margin-bottom: 8px;
+        }
+		.packages-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .packages-title {
+            font-family: "Hurricane", cursive;
+            font-size: 60px;
+            color: #704214;
+            margin-bottom: 30px;
+        }
+        .packages-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap; /* Stacks them on mobile */
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .package-flyer {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+        .package-flyer:hover {
+            transform: translateY(-10px);
+        }
+        .package-flyer img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            display: block;
+        }
+        .boxed-content {
+            background-color: #ffffff;
+            border: 2px solid #ffc1d6;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        footer button {
+            background: none;
+            border: 2px solid #704214;
+            padding: 10px 25px;
+            margin: 0 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        footer button a {
+            text-decoration: none;
+            color: #704214;
+            font-family: "DM Serif Text";
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .socials {
+            height: 50px;
+            margin: 0 15px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #5d4037;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-placeholder">
+            <img src="../../main_pictures/logo.jpg" id="logopc" alt="Logo" style="height: 150px">
+        </div>
+            <h1 id="logo">Creamy Treats</h1>
+    </header>
+
+    <nav>
+        <button><a href="../../index.html">Home</a></button>
+        <button><a href="../AboutUs/aboutus.html">About Us</a></button>
+        <button><a href="menu.html">Menu</a></button>
+        <button><a href="../Orderform/orderform.html">Order Online</a></button>
+    </nav>
+
+    <main class="menu-container">
+        <div class="menu-grid">
+            
+            <div class="menu-item">
+                <img src="wedding1.png" alt="weddingcake" class="item-image">
+                <div class="item-details">
+                    <span class="item-name">Wedding Cake#1</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="bday1.png" alt="bdaycake" class="item-image">
+                <div class="item-details">
+                    <span class="item-name">Birthday Cake#1</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="children1.png" alt="childrencake" class="item-image">
+                <div class="item-details">
+                    <span class="item-name">Children Cake#1</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="wedding2.png" alt="weddingcake" class="item-image">
+                <div class="item-details">
+                    <span class="item-name">Wedding Cake#2</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="bday2.png" alt="bdaycake" class="item-image">
+                <div class="item-details">
+                    <span class="item-name">Birthday Cake#2</</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="children2.png" alt="childrencake" class="item-image">
+                <div class="item-details">
+                    <span class="item-name">Children Cake#2</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="wedding3.png" alt="weddingcake" class="item-image">
+                <div class="item-details">
+                    <span class="item-name">Wedding Cake#3</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="bday3.png" alt="bdaycake" class="item-image">
+                <div class="item-details">
+                    <span class="item-name">Birthday Cake#3</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="children3.png" alt="childrencake" class="item-image">
+                <div class="item-details">
+                    <span class="item-name">Children Cake#3</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="wedding4.png" alt="Peppermint Tea" class="item-image">
+                <div class="item-details">
+                    <span class="item-name">Wedding Cake#4</span>
+                </div>
+            </div>
+			
+			<div class="menu-item">
+                <img src="bday4.png" alt="bdaycake" class="item-image">
+                <div class="item-details">
+                    <span class="item-name">Birthday Cake#4</span>
+                </div>
+            </div>
+			
+			<div class="menu-item">
+                <img src="children4.png" alt="childrencake" class="item-image">
+                <div class="item-details">
+                    <span class="item-name">Children Cake#4</span>
+                </div>
+            </div>
+		</div>	
+		</main> <section class="packages-section">
+        <div class="boxed-content">
+            <h2 class="packages-title">Special Packages</h2>
+        </div>
+        <div class="packages-container">
+            <div class="package-flyer">
+                <img src="weddingpackage.jpg" usemap="#weddingmap" alt="Wedding Package Flyer">
+                <map name="weddingmap">
+                <area shape="rect" coords="0,0,250,500" alt="Order Now" href="../Orderform/orderform.html">  
+                <area shape="rect" coords="251,0,500,500" alt="View Menu" href="menu.html">
+                </map>
+            </div>
+            <div class="package-flyer">
+                <img src="everythingpackage.jpg" alt="Everything Package Flyer">
+            </div>
+        </div>
+
+        
+        <div class="boxed-content">
+            <details class="price-details">
+            <summary>
+                Click to View Detailed Package Inclusions
+            </summary>
+                <h2 class="section-title">Detailed Package Inclusions</h2>
+                <table class="menu-table">
+                    <thead>
+                        <tr>
+                            <th>Cake Type</th>
+                            <th>Size</th>
+                            <th>Price</th>
+                            <th>Cake Flavor</th>
+                            <th>Theme</th>
+                            <th>Icing</th>
+                            <th>Decorations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-Tier Cake w/ 12 Cupcakes</td>
+                            <td>7" x 6"</td>
+                            <td>₱1,300</td>
+                            <td>Chocolate Moist Cake</td>
+                            <td>Any</td>
+                            <td>Soft Icing/Whipped Cream Frosting</td>
+                            <td>Printed Toppers</td>
+                        </tr>
+                        <tr>
+                            <td>2-Tier Cake w/ 12 Cupcakes</td>
+                            <td>8" x 4 (Bottom), 6" x 4 (Top)</td>
+                            <td>₱2,800</td>
+                            <td></td>
+                            <td>Any</td>
+                            <td>Whipped Cream Icing</td>
+                            <td>Fondant Details & Printed Toppers</td>
+                        </tr>
+                        <tr>
+                            <td>3-Tier Cake w/ 12 Cupcakes</td>
+                            <td>10"x4" (Bottom), 8"x4",(Middle) 6"x4" (Top) Tiers</td>
+                            <td>₱4500</td>
+                            <td></td>
+                            <td>Any</td>
+                            <td>Whipped Cream Icing</td>
+                            <td>Fondant Details & Printed Toppers</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="7" style="padding: 20px; text-align: center; background-color: rgba(216,27,96,0.1); color:#d81b60">
+                                NOTE: STARTING PRICE ONLY, ADDITIONAL FEE FOR DETAILED OR CUSTOMIZED DESIGNS
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </details>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <button><a href="https://www.facebook.com/mary.grace.626154"><img src="../../main_pictures/fb.webp" class="socials"></a></button>
+        <button><a href="https://www.instagram.com/mar_ydames?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="../../main_pictures/ig.webp" class="socials"></a></button>
+        <button><a href="mailto:marygracedameso63@gmail.com"><img src="../../main_pictures/gmail.webp" class="socials"></a></button>
+        <button><a href="tel:+639389383741"><img src="../../main_pictures/phone.png" class="socials"></a></button>
+        <br>
+        <div class="contact-info">
+            <strong>Creamy Treats Homemade Cakes</strong><br>
+            Email: marygracedames@gmail.com<br>
+            Phone: 09389383741
+            <br>
+            <a href="../../sitemap.html" style="color: rgb(0, 0, 0); text-decoration: underline; margin-top: 10px; display: inline-block;">Site Map</a>
+            <br>
+            Creamy Treats Homemade Cakes | Developed by: Group 3, ITS121-L Mapúa University Makati
+            <br>
+            2026
+        </div>
+    </footer>
+
+
+</body>
+</html>
